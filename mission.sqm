@@ -4,13 +4,25 @@ class Mission
 	addOns[]=
 	{
 		"cacharacters2",
+		"chernarus",
+		"warfarebuildings",
 		"warfare2vehicles",
-		"chernarus"
+		"ca_modules_silvie",
+		"ca_modules_animals",
+		"CA_Modules_Alice",
+		"ca_missions_secops",
+		"ca_missions_ambientcombat"
 	};
 	addOnsAuto[]=
 	{
 		"cacharacters2",
 		"warfare2vehicles",
+		"ca_modules_silvie",
+		"ca_modules_animals",
+		"CA_Modules_Alice",
+		"ca_missions_secops",
+		"ca_missions_ambientcombat",
+		"warfarebuildings",
 		"chernarus"
 	};
 	randomSeed=7380645;
@@ -26,7 +38,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=3;
+		items=7;
 		class Item0
 		{
 			side="WEST";
@@ -35,32 +47,34 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={4458.7476,339,10410.27};
+					position[]={12446.719,159,12579.595};
 					id=0;
 					side="WEST";
 					vehicle="USMC_Soldier";
 					player="PLAYER COMMANDER";
 					leader=1;
 					skill=0.60000002;
-					synchronizations[]={2};
+					synchronizations[]={4,9};
 				};
 			};
 		};
 		class Item1
 		{
-			side="EAST";
+			side="LOGIC";
 			class Vehicles
 			{
 				items=1;
 				class Item0
 				{
-					position[]={4498.3481,339,10409.852};
-					id=1;
-					side="EAST";
-					vehicle="RU_Soldier";
+					position[]={12458.89,159,12578.478};
+					id=4;
+					side="LOGIC";
+					vehicle="Warfare";
 					leader=1;
+					lock="UNLOCKED";
 					skill=0.60000002;
-					synchronizations[]={2};
+					init="BIS_WF_Common SetVariable [""customInitMissionScript"",""InitMission.sqf""];";
+					synchronizations[]={0};
 				};
 			};
 		};
@@ -72,17 +86,147 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={4479.5903,339,10396.097};
-					id=2;
+					position[]={9087.3496,294.22559,14766.248};
+					id=5;
 					side="LOGIC";
-					vehicle="Warfare";
+					vehicle="SilvieManager";
 					leader=1;
 					lock="UNLOCKED";
 					skill=0.60000002;
-					init="BIS_WF_Common SetVariable [""customInitMissionScript"",""InitMission.sqf""];";
-					synchronizations[]={0,1};
 				};
 			};
+		};
+		class Item3
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={9020.0811,117.22152,13538.625};
+					id=6;
+					side="LOGIC";
+					vehicle="BIS_animals_Logic";
+					leader=1;
+					lock="UNLOCKED";
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item4
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={6480.751,331.48798,14026.311};
+					id=7;
+					side="LOGIC";
+					vehicle="AliceManager";
+					leader=1;
+					lock="UNLOCKED";
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item5
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={12432.718,158.89999,12566.627};
+					id=8;
+					side="LOGIC";
+					vehicle="SecOpManager";
+					leader=1;
+					lock="UNLOCKED";
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item6
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={12450.013,158.94405,12565.79};
+					id=9;
+					side="LOGIC";
+					vehicle="AmbientCombatManager";
+					leader=1;
+					lock="UNLOCKED";
+					skill=0.60000002;
+					synchronizations[]={0};
+				};
+			};
+		};
+	};
+	class Vehicles
+	{
+		items=3;
+		class Item0
+		{
+			position[]={4400.2119,339,10602.275};
+			azimut=60;
+			id=1;
+			side="EMPTY";
+			vehicle="WarfareBAirport";
+			leader=1;
+			skill=0.60000002;
+			init="nullReturn = [this,Localize ""str_wf2_gl_airport""] ExecVM ""ca\Warfare2\Scripts\Server\Server_UpdateAirport.sqf"";  this SetVariable [""markerName"",""Airport1LocationMarker""];";
+		};
+		class Item1
+		{
+			position[]={4655.0811,9,2471.8022};
+			azimut=220;
+			id=2;
+			side="EMPTY";
+			vehicle="WarfareBAirport";
+			leader=1;
+			skill=0.60000002;
+			init="nullReturn = [this,Localize ""str_wf2_gl_airport""] ExecVM ""ca\Warfare2\Scripts\Server\Server_UpdateAirport.sqf"";  this SetVariable [""markerName"",""Airport2LocationMarker""];";
+		};
+		class Item2
+		{
+			position[]={12540.233,159,12557.74};
+			azimut=108;
+			id=3;
+			side="EMPTY";
+			vehicle="WarfareBAirport";
+			leader=1;
+			skill=0.60000002;
+			init="nullReturn = [this,Localize ""str_wf2_gl_airport""] ExecVM ""ca\Warfare2\Scripts\Server\Server_UpdateAirport.sqf"";  this SetVariable [""markerName"",""Airport3LocationMarker""];";
+		};
+	};
+	class Markers
+	{
+		items=3;
+		class Item0
+		{
+			position[]={4402.8765,339,10601.824};
+			name="Airport1LocationMarker";
+			type="Empty";
+		};
+		class Item1
+		{
+			position[]={4659.1328,9.0807304,2471.1299};
+			name="Airport2LocationMarker";
+			type="Empty";
+		};
+		class Item2
+		{
+			position[]={12540.072,159.08073,12556.235};
+			name="Airport3LocationMarker";
+			type="Empty";
 		};
 	};
 };
